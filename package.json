@@ -1,0 +1,23 @@
+{
+  "name": "choose-your-hotel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimmyli123/choose-your-hotel.git"
+  },
+  "author": "Jimmy Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimmyli123/choose-your-hotel/issues"
+  },
+  "homepage": "https://github.com/jimmyli123/choose-your-hotel#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.2"
+  }
+}
