@@ -1,7 +1,7 @@
 <h1>Add a hotel</h1>
 
 <div class="row">
-    <form action="/stories" method="POST" class="col s12">
+    <form action="/hotels/add" enctype="multipart/form-data" method="POST" class="col s12">
         <div class="row">
             <div class="input-field">
                 <input type="text" id="hotelName" name="name">
@@ -20,27 +20,45 @@
                 <label for="city">City</label>
             </div>
         </div>
+
         <div class="row">
             <div class="input-field">
                 <input type="text" id="state" name="state">
                 <label for="state">State/Province</label>
             </div>
         </div>
+
         <div class="row">
-            <div class="input-field col s12">
-                <select>
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
-                <label>Materialize Select</label>
+            <div class="input-field">
+                {{> countries}}
+                
             </div>
         </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select name="price" id="price">
+                    <option value="" disabled selected>Price Range</option>
+                    <option value="$">$</option>
+                    <option value="$$">$$</option>
+                    <option value="$$$">$$$</option>
+                    <option value="$$$$">$$$$</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="imgUpload" class="form-label">Image</label>
+            <input type="file" class="form-control" id="imageUpload" name="file">
+        </div>
+
 
         <div class="row">
             <input type="submit" value="Save" class="btn">
             <a href="/dashboard" class="btn orange">Cancel</a>
         </div>
+
+        
+
     </form>
 </div>

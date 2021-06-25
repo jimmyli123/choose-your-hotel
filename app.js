@@ -19,6 +19,10 @@ require('./config/passport')(passport)
 
 connectDB()
 
+// Body parser - need this to use req.body
+app.use(express.urlencoded({ extended: false}))
+app.use(express.json())
+
 
 // Handlebars
 app.engine('.hbs', exphbs(

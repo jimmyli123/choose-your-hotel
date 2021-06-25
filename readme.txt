@@ -1,4 +1,8 @@
 
-Implemented login page, but need to create a navigation bar with logout option.
+// Next goal
 
-Update: Added logout functionality and an Add Hotel page. Next up is designing the page to add a hotel and what details to add.
+Update 06/24/2021: 
+Allow user to upload one image to Add Hotel page. Next Goal: to allow uploading multiple images. 
+
+Update: Added logout functionality and an Add Hotel page. Next up is designing the page to add a hotel and what details to add. 
+

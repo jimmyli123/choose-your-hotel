@@ -9,6 +9,10 @@ const HotelSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
+    image: {
+        type: String,
+        require: true,
+      },
     state: {
         type: String,
         require: true,
@@ -21,7 +25,15 @@ const HotelSchema = new mongoose.Schema({
         type: String,
         enum: ['$','$$','$$$','$$$$'],
         require: true
-    }
+    },
+    hasPool: {
+        type: Boolean,
+        require: true,
+    }, 
+    cloudinaryId: {
+        type: String,
+        require: false,
+      },
 
 })
 
