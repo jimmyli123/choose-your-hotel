@@ -1,5 +1,7 @@
 
-// Next goal
+Update 6/26/2021:
+Able to upload two photos now. Need to figure out how to pull correct name and details from form.
+
 
 Update 06/24/2021: 
 Allow user to upload one image to Add Hotel page. Next Goal: to allow uploading multiple images. 
