@@ -4,7 +4,8 @@ const cloudinary = require("../middleware/cloudinary");
 const upload = require("../middleware/multer");
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
-const Hotel = require('../models/Hotel')
+const Hotel = require('../models/Hotel');
+const User = require('../models/User');
 
 router.get('/', ensureGuest, (req, res) => {
     console.log(req.user)
@@ -13,11 +14,19 @@ router.get('/', ensureGuest, (req, res) => {
     })
 })
 
+
+// @desc    Shows the list of hotels that user has selected
+// @route   GET /dashboard
 router.get('/dashboard', ensureAuth, async (req,res)=> {
     try {
-        let hotels = await Hotel.find().lean()
+
+        let userArray = req.user.myHotels
+        console.log(`My hotel list is ${req.user.myHotels}`)
+        console.log(`Userarray is ${userArray}`)
+        const hotels = await Hotel.find({_id: { $in: userArray}}).lean()
+        console.log(hotels)
         res.render('dashboard', {
-        hotels,
+        hotels
     })
 
     } catch (error) {
@@ -26,11 +35,55 @@ router.get('/dashboard', ensureAuth, async (req,res)=> {
     
 })
 
+
+// @desc    Compares hotels the user has selected
+// @route   GET /compare
+router.get('/compare', ensureAuth, async (req,res)=> {
+    try {
+        
+    } catch (error) {
+        console.log(`Error happened at get/compare: ${error}`)
+    }
+    
+})
+
+// @desc    Shows the list of all hotels
+// @route   GET /hotelList
+router.get('/hotelList', ensureAuth, async (req,res)=> {
+    try {
+        let hotels = await Hotel.find().lean()
+        res.render('hotelList', {
+        hotels,
+    })
+
+    } catch (error) {
+        console.log(`Error happened at get/hotelList: ${error}`)
+    }
+    
+})
+
+// @desc    Renders the page to add new hotels to our database.
+// @route   GET /hotels/add
 router.get('/hotels/add', ensureAuth, async(req,res) => {
     try {
         res.render('hotels/add')
     } catch (error) {
         
+    }
+})
+
+// @desc    Add a hotel to user list.
+// @route   GET /hotels/addTo/List
+router.get('/hotels/addToList/:id', ensureAuth, async (req,res) => {
+    try {
+        console.log(req.user)
+        let currentUser = await User.findOneAndUpdate({_id: req.user}, {
+            $push: { myHotels: req.params.id}
+        })
+        res.redirect('/hotelList')
+    } catch (error) {
+        console.log(error)
+        return res.render('error/500')
     }
 })
 
@@ -54,12 +107,12 @@ router.post('/hotels/add', ensureAuth, upload.array("file",5), async (req, res) 
     
         // await Hotel.create(req.body)
         await Hotel.create({
-            name: req.body.name,
-            address: req.body.address,
-            city: req.body.city,
-            state: req.body.state,
+            hotelName: req.body.hotelName,
+            hotelAddress: req.body.hotelAddress,
+            hotelCity: req.body.hotelCity,
+            hotelState: req.body.hotelState,
             country: req.body.country,
-            price: req.body.price,
+            priceRange: req.body.price,
             // image: result.secure_url,
             image: imgUrls,
             // cloudinaryId: result.public_id,
@@ -67,7 +120,7 @@ router.post('/hotels/add', ensureAuth, upload.array("file",5), async (req, res) 
 
         
 
-        res.redirect('/dashboard')
+        res.redirect('/hotelList')
     } catch(err) { 
         console.log(err)
         res.render('error/500')

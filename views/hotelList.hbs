@@ -1,0 +1,21 @@
+<h1>List of Hotels</h1>
+{{#if hotels}}
+    {{#each hotels}}
+        <div class="container">
+            {{hotelName}}
+            <a href="/hotels/addToList/{{_id}}">
+                <i class="fas fa-plus"></i>
+            </a>
+
+            {{!-- <form action="/hotels/addToList/{{_id}}" method="UPDATE" id="addHotelToUser">
+            <button type="submit" class="btn red">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </form> --}}
+        </div>
+    {{/each}}
+
+{{else}}
+<p>There are no hotels.</p>
+
+{{/if}}

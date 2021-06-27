@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const HotelSchema = new mongoose.Schema({
-    name: {
+    hotelName: {
         type: String,
         require: true,
     },
-    address: {
+    hotelAddress: {
         type: String,
         require: true,
     },
@@ -13,7 +13,7 @@ const HotelSchema = new mongoose.Schema({
         type: [String],
         require: false,
       },
-    state: {
+    hotelState: {
         type: String,
         require: true,
     },

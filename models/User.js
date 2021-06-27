@@ -24,6 +24,10 @@ const UserSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    myHotels: {
+        type: [String],
+        require: false
     }
 
 })
