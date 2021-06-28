@@ -19,12 +19,8 @@ router.get('/', ensureGuest, (req, res) => {
 // @route   GET /dashboard
 router.get('/dashboard', ensureAuth, async (req,res)=> {
     try {
-
         let userArray = req.user.myHotels
-        console.log(`My hotel list is ${req.user.myHotels}`)
-        console.log(`Userarray is ${userArray}`)
         const hotels = await Hotel.find({_id: { $in: userArray}}).lean()
-        console.log(hotels)
         res.render('dashboard', {
         hotels
     })
@@ -40,6 +36,7 @@ router.get('/dashboard', ensureAuth, async (req,res)=> {
 // @route   GET /compare
 router.get('/compare', ensureAuth, async (req,res)=> {
     try {
+        console.log(`/compare`)
         
     } catch (error) {
         console.log(`Error happened at get/compare: ${error}`)

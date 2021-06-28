@@ -1,4 +1,7 @@
 
+Update 6/27/2021:
+Got the checkbox working. Need to figure out how to pull the id from each checked hotel and send it to /compare request. 
+
 Update 6/26/2021.v2:
 Set up a hotel list page that will display all created hotels. The dashboard shows the user selected hotels. Need to figure out how the user
 will choose which 2 hotels to compare and send it to a comparison page.

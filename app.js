@@ -19,6 +19,8 @@ require('./config/passport')(passport)
 
 connectDB()
 
+
+
 // Body parser - need this to use req.body
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
@@ -31,8 +33,7 @@ app.engine('.hbs', exphbs(
 app.set('view engine', '.hbs')
 
 
-
-// To server static files, which we need for our css file
+// To serve static files, which we need for our css file
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Session
