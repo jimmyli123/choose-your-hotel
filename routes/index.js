@@ -37,6 +37,7 @@ router.get('/dashboard', ensureAuth, async (req,res)=> {
 router.get('/compare', ensureAuth, async (req,res)=> {
     try {
         console.log(`/compare`)
+        console.log(req.body.checkedItemsFromJS)
         
     } catch (error) {
         console.log(`Error happened at get/compare: ${error}`)

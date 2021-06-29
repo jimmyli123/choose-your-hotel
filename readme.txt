@@ -1,4 +1,7 @@
 
+Update 6/28/2021:
+Was able to solve how to get checked hotels in my main.js file. Now I need to find out how to send the checked hotels to the /compare request.
+
 Update 6/27/2021:
 Got the checkbox working. Need to figure out how to pull the id from each checked hotel and send it to /compare request. 
 
