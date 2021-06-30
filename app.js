@@ -7,6 +7,7 @@ const passport = require('passport')
 const connectDB = require('./config/db')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
+const methodOverride = require('method-override')
 const app = express()
 
 const PORT = 1234
@@ -24,6 +25,9 @@ connectDB()
 // Body parser - need this to use req.body
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
+
+// Method override
+app.use(methodOverride('_method'))
 
 
 // Handlebars

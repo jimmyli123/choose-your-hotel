@@ -31,13 +31,27 @@ router.get('/dashboard', ensureAuth, async (req,res)=> {
     
 })
 
+// // @desc    Compares hotels the user has selected
+// // @route   GET /compare
+// router.get('/compare', ensureAuth, async (req,res)=> {
+//     try {
+//         console.log(`GET /compare`)
+//         console.log(req.body.checkedItemsFromJS)
+        
+//     } catch (error) {
+//         console.log(`Error happened at get/compare: ${error}`)
+//     }
+    
+// })
 
 // @desc    Compares hotels the user has selected
 // @route   GET /compare
 router.get('/compare', ensureAuth, async (req,res)=> {
     try {
-        console.log(`/compare`)
+        console.log(`GET /compare`)
+        console.log(req.body)
         console.log(req.body.checkedItemsFromJS)
+        res.render('comparePage', {hotels: req.body.checkedItemsFromJS} )
         
     } catch (error) {
         console.log(`Error happened at get/compare: ${error}`)
