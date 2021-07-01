@@ -10,18 +10,18 @@ async function compareHotels() {
     try {
         console.log('I will compare')
         let arrayOfCheckbox = document.querySelectorAll('input[type="checkbox"]:checked')
+        let test = Array.prototype.slice.call(arrayOfCheckbox)
+        console.log(`Test: ${test}`)
         console.log(arrayOfCheckbox)
         console.log('We are comparing baby')
 
         const response = await fetch('index/compare', {
             method: 'get',
-            headers: {'Content-type': 'application/json'},
+            headers: {'Content-type': 'application/json'},  // application/json
             body: JSON.stringify({
-                'checkedItemsFromJS': arrayOfCheckbox
+                'checkedItemsFromJS': arrayOfCheckbox[0]
             })
         })
-        console.log(`waiting for data}`)
-        const data = await response.json()
         
     } catch (error) {
         

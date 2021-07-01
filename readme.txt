@@ -1,3 +1,6 @@
+Update 6/30/2021:
+Still can't figure it out. However, I believe it has to do with the data I am sending to the http. Currently sending Nodelist which might be the issue.
+
 Update 6/29/2021: 
 No progress, still trying to figure out how to send data from main.js to my /compare get request.
 
