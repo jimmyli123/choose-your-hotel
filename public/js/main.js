@@ -1,27 +1,38 @@
 let compareForm = document.getElementById('#compareButton')
 
-// document.querySelector('#compareButton').addEventListener('click', compareHotels)
-let buttonItem = document.querySelector('#compareButton')
 
-if (buttonItem) {
-    buttonItem.addEventListener('click', compareHotels)
-}
+// document.querySelector('#compareButton').addEventListener('click', compareHotels)
+let buttonItem = document.querySelector('#compareButton').addEventListener('click', compareHotels)
+
+
+// if (buttonItem) {
+//     buttonItem.addEventListener('click', compareHotels)
+// }
 async function compareHotels() {
     try {
+        // let compareItems = document.querySelectorAll('.checkbox')
+        
         console.log('I will compare')
-        let arrayOfCheckbox = document.querySelectorAll('input[type="checkbox"]:checked')
-        let test = Array.prototype.slice.call(arrayOfCheckbox)
-        console.log(`Test: ${test}`)
-        console.log(arrayOfCheckbox)
+        let checkedNodeList = document.querySelectorAll('input[type="checkbox"]:checked')
+        let arr = []
+        for (let i =0; i < checkedNodeList.length; i++) {
+            console.log(checkedNodeList[i].id)
+            arr.push(checkedNodeList[i].id)
+        }
+        console.log(arr)
         console.log('We are comparing baby')
 
         const response = await fetch('index/compare', {
-            method: 'get',
+            method: 'post',
             headers: {'Content-type': 'application/json'},  // application/json
             body: JSON.stringify({
-                'checkedItemsFromJS': arrayOfCheckbox[0]
+                'checkedItemsFromJS': arr
             })
         })
+        const data = await response.json()
+        console.log('I am back')
+        
+        
         
     } catch (error) {
         

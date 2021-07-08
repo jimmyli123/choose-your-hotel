@@ -46,13 +46,13 @@ router.get('/dashboard', ensureAuth, async (req,res)=> {
 
 // @desc    Compares hotels the user has selected
 // @route   GET /compare
-router.get('/compare', ensureAuth, async (req,res)=> {
+router.post('/index/compare', async (req,res)=> {
+
     try {
-        
-        console.log(req.body)
+        console.log(`The req ${req.body}`)
         console.log(req.body.checkedItemsFromJS)
         console.log(`GET /compare`)
-        // res.render('comparePage', {hotels: req.body.checkedItemsFromJS} )
+        res.render('comparePage', {hotels: req.body.checkedItemsFromJS} )
         
     } catch (error) {
         console.log(`Error happened at get/compare: ${error}`)

@@ -1,3 +1,6 @@
+Update 7/7/2021:
+Figured out how to send data from js to the request. However, it is not rendering the compare page. 
+
 Update 6/30/2021:
 Still can't figure it out. However, I believe it has to do with the data I am sending to the http. Currently sending Nodelist which might be the issue.
 
