@@ -1,3 +1,6 @@
+Update 7/8/2021:
+Decided to get rid of the checkboxes. The hotels added to the dashboard will be compared. Now I need to implement a comparison page layout.
+
 Update 7/7/2021:
 Figured out how to send data from js to the request. However, it is not rendering the compare page. 
 

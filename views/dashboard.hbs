@@ -1,23 +1,32 @@
 <h1>Dashboard</h1>
 {{#if hotels}}
-{{!-- <form action="/compare"  method="GET" id="compareHotels"> --}}
+
     
     {{#each hotels}}
         <div class="container">
             
-            <label>
+            {{!-- <label>
                 <input type="checkbox" class="checkbox" name="{{hotelName}}"  id="{{_id}}">
                 <span>{{hotelName}}</span>
-               
-            </label>
+            </label> --}}
+
+            <span>{{hotelName}}</span>
+            
+            <button class="btn red remove" data-id="{{_id}}">
+                <i class="fas fa-trash"></i>
+            </button>
+            </form>
             
             
         </div>
     {{/each}}
+    
+<form action="/compare"  method="GET" id="compareHotels">
     <button type="submit" class="btn red" id="compareButton">
         Compare Hotels
     </button>
-{{!-- </form>     --}}
+</form>
+
 {{else}}
 <p>No hotels are selected.</p>
 

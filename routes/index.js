@@ -31,28 +31,31 @@ router.get('/dashboard', ensureAuth, async (req,res)=> {
     
 })
 
-// // @desc    Compares hotels the user has selected
-// // @route   GET /compare
-// router.get('/compare', ensureAuth, async (req,res)=> {
-//     try {
-//         console.log(`GET /compare`)
-//         console.log(req.body.checkedItemsFromJS)
-        
-//     } catch (error) {
-//         console.log(`Error happened at get/compare: ${error}`)
-//     }
+// @desc    Shows the list of hotels that user has selected
+// @route   GET /dashboard
+router.put('/remove', ensureAuth, async (req,res)=> {
+    try {
+        // console.log(req.user)
+        await User.findByIdAndUpdate(req.user._id, {$pull: {myHotels: req.body.idToRemove}})
+        res.json('Remove completed')
+    }
+    catch (error) {
+        console.log(`Error happened at put/remove: ${error}`)
+    }
     
-// })
+})
+
 
 // @desc    Compares hotels the user has selected
 // @route   GET /compare
-router.post('/index/compare', async (req,res)=> {
+router.get('/compare', async (req,res)=> {
 
     try {
-        console.log(`The req ${req.body}`)
-        console.log(req.body.checkedItemsFromJS)
+        let currentUser = await User.findById({ _id: req.user._id})
+        let selectedHotels = await Hotel.find({_id: { $in: currentUser.myHotels}}).lean()
+        
         console.log(`GET /compare`)
-        res.render('comparePage', {hotels: req.body.checkedItemsFromJS} )
+        res.render('comparePage', {hotels: selectedHotels} )
         
     } catch (error) {
         console.log(`Error happened at get/compare: ${error}`)

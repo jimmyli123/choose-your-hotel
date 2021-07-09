@@ -1,3 +1,23 @@
 <h1>I am the comparison page.</h1>
 
-<span>{{hotels}}</span>
+{{#if hotels}}
+
+{{#each hotels}}
+<div class="split">
+    <div class="centered">
+        <h5>{{hotelName}}</h5>
+        <span>{{hotelAddress}}</span>
+        <span>Price: {{priceRange}}</span>
+        {{#each image}}
+        <img src="{{this}}" alt="">
+        {{/each}}
+    </div>
+    
+</div>
+    
+{{/each}}
+
+
+{{ else}}
+<p>You have not selected any hotels to compare.</p>
+{{/if}}
