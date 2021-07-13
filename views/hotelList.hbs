@@ -2,16 +2,20 @@
 {{#if hotels}}
     {{#each hotels}}
         <div class="container">
-            {{hotelName}}
-            <a href="/hotels/addToList/{{_id}}">
-                <i class="fas fa-plus"></i>
-            </a>
-
-            {{!-- <form action="/hotels/addToList/{{_id}}" method="UPDATE" id="addHotelToUser">
-            <button type="submit" class="btn red">
+            <table>
+                <tr>
+                    {{hotelName}}
+                    <a href="/hotels/addToList/{{_id}}">
                     <i class="fas fa-plus"></i>
-                </button>
-            </form> --}}
+                    </a>
+                    <form action="/hotels/{{_id}}?_method=DELETE" method="POST" id="delete-form" >
+                    <button type="submit" class="btn red">
+                    <i class="fas fa-trash"></i>
+                    </button>
+                    </form>
+                </tr>
+            </table>
+            
         </div>
     {{/each}}
 

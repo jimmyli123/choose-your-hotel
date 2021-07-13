@@ -1,3 +1,6 @@
+Update 7/12/2021:
+Made some small changes to the login page layout. Need to make it look nicer and allow user to upload more than 2 pictures.
+
 Update 7/8/2021:
 Decided to get rid of the checkboxes. The hotels added to the dashboard will be compared. Now I need to implement a comparison page layout.
 

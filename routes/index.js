@@ -129,6 +129,7 @@ router.post('/hotels/add', ensureAuth, upload.array("file",5), async (req, res) 
             hotelState: req.body.hotelState,
             country: req.body.country,
             priceRange: req.body.price,
+            hasPool: req.body.pool,
             // image: result.secure_url,
             image: imgUrls,
             // cloudinaryId: result.public_id,
@@ -140,6 +141,19 @@ router.post('/hotels/add', ensureAuth, upload.array("file",5), async (req, res) 
     } catch(err) { 
         console.log(err)
         res.render('error/500')
+    }
+})
+
+
+// @desc    Add a hotel to user list.
+// @route   GET /hotels/addTo/List
+router.delete('/hotels/:id', ensureAuth, async (req,res) => {
+    try {
+        await Hotel.deleteOne({ _id: req.params.id})
+        res.redirect('/hotelList')
+    } catch (error) {
+        console.log(error)
+        return res.render('error/500')
     }
 })
 

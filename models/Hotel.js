@@ -27,7 +27,8 @@ const HotelSchema = new mongoose.Schema({
         require: true
     },
     hasPool: {
-        type: Boolean,
+        type: String,
+        enum: ["Yes", "No"],
         require: true,
     }, 
     cloudinaryId: {
