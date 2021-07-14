@@ -1,7 +1,7 @@
 <h1>List of Hotels</h1>
 {{#if hotels}}
     {{#each hotels}}
-        <div class="container">
+        {{!-- <div class="container">
             <table>
                 <tr>
                     {{hotelName}}
@@ -15,8 +15,30 @@
                     </form>
                 </tr>
             </table>
-            
-        </div>
+        </div> --}}
+
+        {{!-- Trying something different  --}}
+        <section class="aHotel">  
+      
+            <img src="{{image.[0]}}" class="hotelImg"></img>
+            <section class="hotelData">
+                <h3>{{hotelName}}</h3>
+                <span>{{hotelAddress}}, </span>
+                <span>{{hotelState}}</span>
+            </section>
+        
+            <a href="/hotels/addToList/{{_id}}">
+                <i class="fas fa-plus"></i>
+            </a>
+            <form action="/hotels/{{_id}}?_method=DELETE" method="POST" id="delete-form" >
+                <button type="submit" class="btn red">
+                <i class="fas fa-trash"></i>
+                </button>
+            </form>
+        </section>
+
+
+
     {{/each}}
 
 {{else}}

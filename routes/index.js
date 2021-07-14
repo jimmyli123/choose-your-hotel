@@ -8,7 +8,6 @@ const Hotel = require('../models/Hotel');
 const User = require('../models/User');
 
 router.get('/', ensureGuest, (req, res) => {
-    console.log(req.user)
     res.render('login', {
         layout: 'loginLayout'
     })
