@@ -1,3 +1,6 @@
+Update 7/18/2021:
+Added a page for each hotel by clicking on the name of the hotel. Currently displays all images. Need to add more functionality and data to this page.
+
 Update 7/12/2021:
 Made some small changes to the login page layout. Need to make it look nicer and allow user to upload more than 2 pictures.
 

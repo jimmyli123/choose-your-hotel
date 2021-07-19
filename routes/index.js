@@ -87,6 +87,18 @@ router.get('/hotels/add', ensureAuth, async(req,res) => {
     }
 })
 
+// @desc    Renders the individual hotel page
+// @route   GET /hotels/id
+router.get('/hotels/:id', ensureAuth, async(req,res) => {
+    try {
+        let thisHotel = await Hotel.findById({_id: req.params.id}).lean()
+        console.log(thisHotel)
+        res.render('hotels/hotel', thisHotel)
+    } catch (error) {
+        
+    }
+})
+
 // @desc    Add a hotel to user list.
 // @route   GET /hotels/addTo/List
 router.get('/hotels/addToList/:id', ensureAuth, async (req,res) => {

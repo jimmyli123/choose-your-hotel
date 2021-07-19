@@ -8,27 +8,63 @@
     width: 50%;
 }
 
-.hotelImg {
+.hotelListImg {
     width: 20%;
+}
+
+.hotelCompareImage {
+    width: 75%;
 }
 
 #login {
     border-radius: 30px;
 }
 
-.login-container {
+.loginImage {
+    width: 50%;
+}
+/* .login-container {
     color: white;
     height: 768px;
     width: 100%;
-    /* display: flex; */
-    /* align-items: center;
-    justify-content: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-image: url("../images/welcomeToVegas1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     
-}
+} */
 
 .intro {
    padding-left: 5%;
+}
+
+.title {
+    display: block;
+    font-weight: bold;
+    width: fit-content;
+    font-size: 2rem;
+    font-family: 'Noto Sans KR';
+    color: black;
+}
+.hotelIcon {
+    display: flex;
+}
+
+img {
+    width: 75%;
+}
+
+
+
+.addHotel {
+    border-radius: 30px;
+}
+.addToListbutton {
+    background-color: hsl(130, 41%, 57%);
+    border-radius: 30px;
+}
+.hotelTitle {
+    margin-bottom: 1rem;
 }

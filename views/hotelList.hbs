@@ -19,22 +19,24 @@
 
         {{!-- Trying something different  --}}
         <section class="aHotel">  
-      
-            <img src="{{image.[0]}}" class="hotelImg"></img>
+
+            <a href="/hotels/{{_id}}" class="title">{{hotelName}}</a>
+            <img src="{{image.[0]}}" class="hotelListImg"></img>
             <section class="hotelData">
-                <h3>{{hotelName}}</h3>
                 <span>{{hotelAddress}}, </span>
                 <span>{{hotelState}}</span>
             </section>
-        
-            <a href="/hotels/addToList/{{_id}}">
-                <i class="fas fa-plus"></i>
-            </a>
-            <form action="/hotels/{{_id}}?_method=DELETE" method="POST" id="delete-form" >
-                <button type="submit" class="btn red">
-                <i class="fas fa-trash"></i>
+            <section class="hotelIcon">
+                <a href="/hotels/addToList/{{_id}}">
+                    <i class="fas fa-plus fa-2x"></i>
+                </a>
+                <form action="/hotels/{{_id}}?_method=DELETE" method="POST" id="delete-form" >
+                    <button type="submit" class="btn red">
+                    <i class="fas fa-trash"></i>
                 </button>
             </form>
+            </section>
+            
         </section>
 
 
